@@ -1,3 +1,4 @@
+audioread
 ipyleaflet>=0.14.0
 ipywidgets>=7.7.1
 keras_tuner
@@ -11,6 +12,9 @@ python-dotenv>=0.20.0
 requests>=2.27.1
 scikit-learn
 seaborn>=0.12.2
+soundfile
 sqlalchemy>=2.0.38
+streamlit
 sympy>=1.10.1
+tensorflow
 xgboost

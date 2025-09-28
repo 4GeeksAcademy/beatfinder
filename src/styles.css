@@ -1,0 +1,23 @@
+/*
+primario: #d5f979,
+texto:  #ffffff,
+fondo: #17162e,
+fondo_secundario: #2a2747,
+iconos: #a9f5b4
+*/
+
+h1, h2 {
+    color: #d5f979;
+}
+
+h3 {
+    color: #17162e;
+}
+
+h4, h5, p, a, li, label {
+    color: #ffffff;
+}
+
+button {
+    color: #a9f5b4;
+}

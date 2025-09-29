@@ -61,8 +61,8 @@ Four main models were compared. The best performance was achieved after hyperpar
 | :--- | :--- | :--- |
 | **Neural Network (DNN)** | Keras Tuner | 69% |
 | Random Forest | RandomizedSearchCV | 55.34% |
-| SVM (RBF/Linear) | RandomizedSearchCV (Subset) | % |
-| Logistic Regression | Base | % |
+| SVM (RBF/Linear) | RandomizedSearchCV (Subset) | 62'65% |
+| Logistic Regression | Base | 56'56% |
 
 🥇 The winning model was the Neural Network with a final accuracy of over 69%.
 

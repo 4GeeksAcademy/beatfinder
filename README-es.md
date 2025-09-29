@@ -63,8 +63,8 @@ Se compararon cuatro modelos principales. El mejor rendimiento se logró tras la
 | :--- | :--- | :--- |
 | **Red Neuronal (DNN)** | Keras Tuner | 69% |
 | Random Forest | RandomizedSearchCV | 55'34% |
-| SVM (RBF/Lineal) | RandomizedSearchCV (Subset) | % |
-| Regresión Logística | Base | % |
+| SVM (RBF/Lineal) | RandomizedSearchCV (Subset) | 62'65% |
+| Regresión Logística | Base | 56'56% |
 
 
 🥇 El modelo ganador fue la Red Neuronal con una precisión final superior al 69%.

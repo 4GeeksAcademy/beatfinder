@@ -49,7 +49,6 @@ try:
     
 except Exception as e:
     # If it fails, we'll try to download the data from '/models'
-    st.error(f"Error loading from 'src/models': {e}. Trying an alternate route...")
     try:
         model_path = os.path.join("models", MODEL_FILENAME)
         scaler_path = os.path.join("models", SCALER_FILENAME)
@@ -58,7 +57,7 @@ except Exception as e:
         scaler = load(open(scaler_path, 'rb'))
         st.sidebar.success("Modelos y Scaler PKL cargados desde la ruta 'models/'.")
     except Exception as e_alt:
-        st.error(f"Error: PKL models could not be loaded from any path. Please check the format and location. {e_alt}")
+        st.error(f"Unexpected Error. Please, try again later. {e_alt}")
         st.stop()
 
 
@@ -68,7 +67,7 @@ try:
     with open(dict_path) as f:
         genre_dict = json.load(f)
 except FileNotFoundError:
-    st.error(f"Error: We couldn't find the factorization file: {dict_path}")
+    st.error(f"Error: Unexpected error. Please, try again later {dict_path}")
     st.stop()
 
 

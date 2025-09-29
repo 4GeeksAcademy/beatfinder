@@ -106,8 +106,7 @@ Estas ideas son mejoras directas para la base de datos y el modelo de Machine Le
 
 Aquí un mockup de cómo podría verse la aplicación web:
 
-<img width="878" height="493" alt="image" src="https://github.com/user-attachments/assets/3482ecda-fdd2-40d9-be1e-67b17d85c4a4" />
-
+<img width="631" height="367" alt="image" src="https://github.com/user-attachments/assets/6cc471df-e92e-46cc-9a72-533a6adde78f" />
 
 
 ## 🧑‍💻 Co-creadores

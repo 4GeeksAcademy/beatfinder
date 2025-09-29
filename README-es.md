@@ -51,7 +51,7 @@ Se compararon cuatro modelos principales. El mejor rendimiento se logró tras la
 | Modelo | Optimización | Accuracy en Test Set |
 | :--- | :--- | :--- |
 | **Red Neuronal (DNN)** | Keras Tuner | 68'66% |
-| Random Forest | RandomizedSearchCV | % |
+| Random Forest | RandomizedSearchCV | 55'34% |
 | SVM (RBF/Lineal) | RandomizedSearchCV (Subset) | % |
 | Regresión Logística | Base | % |
 
@@ -70,6 +70,33 @@ Se compararon cuatro modelos principales. El mejor rendimiento se logró tras la
 │   └── neural_network.pkl (El objeto del modelo ganador final)
 └── README.md
 ```
+
+## 🚀 Próximas Ideas y Expansión del Proyecto
+
+### 1. Ideas de Producto y UX/UI (Lado Izquierdo)
+Estas ideas se centran en cómo el usuario final interactuaría con el producto y cómo se generaría valor.
+
+- **Ingresar una estrofa y obtener automáticamente información detallada de la canción**: Esto implica un motor de búsqueda de audio avanzado (similar a Shazam o SoundHound), que requeriría un modelo de Machine Learning para la búsqueda por hashing de audio.
+
+- **Integrar un sistema de recomendación**: Utilizar el modelo de clasificación de géneros y las características extraídas para recomendar canciones similares, lo que requiere un modelo de recomendación adicional (basado en contenido o filtrado colaborativo).
+
+- **Visualización del audio y la playlist recomendada**: Podrías escuchar una preview de la canción seleccionada tanto la que subes como las de la playlist.
+
+- **Monetizar**: Un banner con publicidad o incluso una suscripción de pago para evitar estos anuncios.
+
+### 2. Ideas de Desarrollo Técnico y ML (Lado Derecho)
+Estas ideas son mejoras directas para la base de datos y el modelo de Machine Learning.
+
+- **Explorar técnicas avanzadas de manejo de desbalance de clases**: Esto mejoraría la precisión del modelo así como poder identificar más géneros de música que ahora mismo no están disponibles.
+
+- **Realizar ingeniería de características más profunda o selección de características más sofisticada**: así como BPM, segmentación, etc.
+
+- **Integración con APIs externas (Spotify, Apple Music, YouTube Music)**: Es la implementación práctica de la preview de la canción que mencionamos anteriormente.
+
+Aquí un mockup de cómo podría verse la aplicación web:
+<img width="878" height="493" alt="image" src="https://github.com/user-attachments/assets/3482ecda-fdd2-40d9-be1e-67b17d85c4a4" />
+
+
 
 ## 🧑‍💻 Co-creadores
 Este proyecto fue desarrollado en colaboración por:

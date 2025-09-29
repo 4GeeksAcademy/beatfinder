@@ -3,6 +3,17 @@
 # BeatFinder 🎧: Clasificación de Géneros Musicales con Redes Neuronales
 **BeatFinder** es el proyecto final del Bootcamp de Data Science & Machine Learning en 4Geeks Academy. Su objetivo principal es clasificar automáticamente grabaciones de audio en uno de sus 16 géneros principales utilizando las características acústicas de la señal y un modelo de Red Neuronal Profunda (DNN).
 
+## 📄 Índice
+- [Objetivo del Proyecto](#-objetivo-del-proyecto) 🎯
+- [Tecnología y Herramientas](#-tecnología-y-herramientas) 🧠
+- [Exploración y Preprocesamiento de Datos (EDA)](#-exploración-y-preprocesamiento-de-datos-eda) 📊
+- [Resultados del Modelo](#-resultados-del-modelo) 🏆
+- [Estructura del Repositorio](#-estructura-del-repositorio) ⚙️
+- [Próximas Ideas y Expansión del Proyecto](#-próximas-ideas-y-expansión-del-proyecto) 🚀
+- [Co-creadores](#-co-creadores) 🧑‍💻
+
+---
+
 ## 🎯 Objetivo del Proyecto
 El objetivo principal de este proyecto es desarrollar un modelo de clasificación capaz de identificar el género musical de una pista basándose únicamente en sus propiedades acústicas.
 
@@ -20,7 +31,7 @@ Para esto hemos realizado lo siguiente:
 
 - **Modelado**: Diseñamos y optimizamos una Red Neuronal Densa (DNN) para maximizar la precisión en la identificación de géneros tras explorar otros modelos así como Random Forest, SVM o Regresión Logísitca.
 
-*Finalmente el modelo tiene 49,133 filas y 518 variables pudiendo predecir hasta 16 géneros distintos.*
+*Finalmente el modelo tiene 49,133 filas y 519 variables pudiendo predecir hasta 16 géneros distintos.*
 
 ## 🧠 Tecnología y Herramientas
 | Categoría | Herramientas Clave |
@@ -48,15 +59,15 @@ Desafíos Superados:
 ## 🏆 Resultados del Modelo
 Se compararon cuatro modelos principales. El mejor rendimiento se logró tras la optimización de hiperparámetros de la Red Neuronal mediante Keras Tuner utilizando el mejor dataset seleccionado.
 
-| Modelo | Optimización | Accuracy en Test Set |
+| Modelo | Optimización | Accuracy |
 | :--- | :--- | :--- |
-| **Red Neuronal (DNN)** | Keras Tuner | 68'66% |
+| **Red Neuronal (DNN)** | Keras Tuner | 69% |
 | Random Forest | RandomizedSearchCV | 55'34% |
 | SVM (RBF/Lineal) | RandomizedSearchCV (Subset) | % |
 | Regresión Logística | Base | % |
 
 
-🥇 El modelo ganador fue la Red Neuronal con una precisión final entorno del 68%.
+🥇 El modelo ganador fue la Red Neuronal con una precisión final superior al 69%.
 
 ## ⚙️ Estructura del Repositorio
 ```
@@ -94,6 +105,7 @@ Estas ideas son mejoras directas para la base de datos y el modelo de Machine Le
 - **Integración con APIs externas (Spotify, Apple Music, YouTube Music)**: Es la implementación práctica de la preview de la canción que mencionamos anteriormente.
 
 Aquí un mockup de cómo podría verse la aplicación web:
+
 <img width="878" height="493" alt="image" src="https://github.com/user-attachments/assets/3482ecda-fdd2-40d9-be1e-67b17d85c4a4" />
 
 

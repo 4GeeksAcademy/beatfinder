@@ -98,4 +98,4 @@ if st.button('Predict'):
         prediction = model.predict(row_scaled)[0]
         predicted_index = int(np.argmax(prediction))
         genre_prediction = genre_dict[str(predicted_index)]
-        st.success(f"Predicted genre: {genre_prediction}")
+        st.success(f"Predicted genre: {genre_prediction}") 

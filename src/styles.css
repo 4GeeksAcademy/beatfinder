@@ -1,23 +1,72 @@
 /*
 primario: #d5f979,
-texto:  #ffffff,
+texto: #ffffff,
 fondo: #17162e,
-fondo_secundario: #2a2747,
-iconos: #a9f5b4
+fondo_secundario: #2b2444 ,
+iconos: #a9f5b4, #d5f979
 */
 
-h1, h2 {
-    color: #d5f979;
+[data-testid='stApp'],
+header {
+    background-color: #14142c !important;
+}
+
+h1,
+h2 {
+    color: #d5f979 !important;
 }
 
 h3 {
-    color: #17162e;
+    color: #14142c !important;
 }
 
-h4, h5, p, a, li, label {
-    color: #ffffff;
+h4,
+h5,
+p,
+a,
+li,
+label,
+span,
+.stFileUploaderFileName,
+small {
+    color: #ffffff !important;
 }
 
-button {
-    color: #a9f5b4;
+section[role='presentation'] {
+    background-color: #2b2444 !important;
+}
+
+svg {
+    color: #d5f979 !important;
+}
+
+button,
+button div p,
+div [role="alert"] {
+    background-color: #d5f979 !important;
+    color: #17162e !important;
+    font-weight: bold !important;
+}
+
+button:hover,
+button div p:hover {
+    background-color: #7bf77b !important;
+}
+
+div [role="alert"] {
+    width: fit-content !important;
+}
+
+.stAlert p {
+    color: #17162e !important;
+    font-weight: bold !important;
+}
+
+ul[role="listbox"], ul[role="listbox"] li {
+    background-color: #2b2444 !important;
+}
+
+[data-testid="stBaseButton-headerNoPadding"] svg, [data-testid="stFileUploaderDeleteBtn"] svg {
+    color: #14142c !important;
+    fill: #14142c !important;
 }

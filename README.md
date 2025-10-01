@@ -11,9 +11,9 @@
 - [Technology and Tools](#-technology-and-tools) 🧠
 - [Data Exploration and Preprocessing (EDA)](#-data-exploration-and-preprocessing-eda) 📊
 - [Model Results](#-model-results) 🏆
-- [Repository Structure](#-repository-structure) ⚙️
+- [Repository Structure](#repository-structure) ⚙️
 - [Future Ideas and Project Expansion](#-future-ideas-and-project-expansion) 🚀
-- [Co-creators](#-co-creators) 🧑‍💻
+- [Co-creators](#co-creators) 🧑‍💻
 
 ---
 

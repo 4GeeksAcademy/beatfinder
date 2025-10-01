@@ -19,6 +19,8 @@
 
 ## 🚀 ¿Cómo Usarlo?
 
+![preview de la webapp de Beatfinder](image-1.png)
+
 La aplicación BeatFinder está desplegada usando Streamlit. Para ejecutarla localmente y utilizar el modelo de clasificación, sigue estos pasos:
 
 1.  **Navega al Directorio Fuente:**

@@ -19,6 +19,8 @@
 
 ## 🚀 How To Use It?
 
+![preview of Beatfinder webapp](image-1.png)
+
 The BeatFinder application is deployed using Streamlit. To run it locally and use the classification model, follow these steps:
 
 1.  **Navigate to the Source Directory:**

@@ -12,50 +12,54 @@ import librosa
 # Constants
 MODEL_DIR = "src/models"
 FACTORIZE_DIR = "factorize"
-MODEL_FILENAME = "Neuronal_Network.pkl" 
+MODEL_FILENAME = "Neuronal_Network.pkl"
 SCALER_FILENAME = "scaler_without_outliers.pkl"
 GENRE_DICT_FILENAME = "factorized_genre_top.json"
+
 
 # Styles
 # ... (Tu función load_css y llamada a load_css('styles.css'))
 def load_css(file_name):
     """Loads the contents of a CSS file and injects the styles into Streamlit."""
-    
+
     current_dir = os.path.dirname(__file__)
-    css_path = os.path.join(current_dir, file_name) 
+    css_path = os.path.join(current_dir, file_name)
 
     try:
         with open(css_path) as f:
-            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
         st.warning(f"Warning: No CSS file founded '{file_name}'.")
     except Exception as e:
         st.error(f"Error loading CSS: {e}")
 
-load_css('styles.css')
+
+load_css("styles.css")
 
 # Web app
-st.title('BeatFinder')
-st.header('Automatic Classification of Musical Genres')
-st.write('Upload your track and BeatFinder will use advanced AI to instantly determine its genre')
+st.title("BeatFinder")
+st.header("Automatic Classification of Musical Genres")
+st.write(
+    "Upload your track and BeatFinder will use advanced AI to instantly determine its genre"
+)
+
 # Charging model and scaler
-# ... (Tu código de carga de modelo y scaler)
 try:
     # first we download the data from'src/models'
     model_path = os.path.join(MODEL_DIR, MODEL_FILENAME)
     scaler_path = os.path.join(MODEL_DIR, SCALER_FILENAME)
-    
-    model = load(open(model_path, 'rb'))
-    scaler = load(open(scaler_path, 'rb'))
-    
+
+    model = load(open(model_path, "rb"))
+    scaler = load(open(scaler_path, "rb"))
+
 except Exception as e:
     # If it fails, we'll try to download the data from '/models'
     try:
         model_path = os.path.join("models", MODEL_FILENAME)
         scaler_path = os.path.join("models", SCALER_FILENAME)
-        
-        model = load(open(model_path, 'rb'))
-        scaler = load(open(scaler_path, 'rb'))
+
+        model = load(open(model_path, "rb"))
+        scaler = load(open(scaler_path, "rb"))
     except Exception as e_alt:
         st.error(f"Unexpected Error. Please, try again later. {e_alt}")
         st.stop()
@@ -72,7 +76,7 @@ except FileNotFoundError:
     st.stop()
 
 
-if 'notification_permission_requested' not in st.session_state:
+if "notification_permission_requested" not in st.session_state:
     st.session_state.notification_permission_requested = False
 
 ## audio
@@ -80,7 +84,7 @@ uploaded_file = st.file_uploader("Choose a file")
 status_placeholder = st.empty()
 
 if uploaded_file is not None and not st.session_state.notification_permission_requested:
-    
+
     # Este JS solo pide el permiso, no envía la notificación.
     js_request_permission = """
     <script>
@@ -93,13 +97,15 @@ if uploaded_file is not None and not st.session_state.notification_permission_re
     """
     # Ejecutamos el JavaScript para solicitar el permiso
     components.html(js_request_permission, height=0, width=0)
-    
+
 # Prediction
-if st.button('Predict'):
+if st.button("Predict"):
     if uploaded_file is None:
-        status_placeholder.error("Please, upload a music file before start a prediction.")
+        status_placeholder.error(
+            "Please, upload a music file before start a prediction."
+        )
     else:
-        with st.spinner('🎧 Analyzing track... It may take some seconds'):
+        with st.spinner("🎧 Analyzing track... It may take some seconds"):
             temp_filename = ""
             try:
                 # 1. Guardar y cargar el archivo temporalmente
@@ -109,16 +115,16 @@ if st.button('Predict'):
                     f.write(uploaded_file.getbuffer())
 
                 y, sr = librosa.load(temp_filename, sr=None)
-                
+
                 # 2. Extracción de features (la parte que más tarda)
                 row = extract_features(y, sr).reshape(1, -1)
-                
+
                 # 3. Predicción (la parte rápida)
                 row_scaled = scaler.transform(row)
                 prediction = model.predict(row_scaled)[0]
                 predicted_index = int(np.argmax(prediction))
                 genre_prediction = genre_dict[str(predicted_index)]
-                
+
                 js_send_notification = f"""
                 <script>
                     if ("Notification" in window && Notification.permission === "granted") {{
@@ -129,19 +135,25 @@ if st.button('Predict'):
                     }}
                 </script>
                 """
-                
+
                 # Ejecutar el JavaScript de notificación
                 components.html(js_send_notification, height=0, width=0)
                 # 4. Mostrar el resultado final usando el placeholder
-                status_placeholder.success(f"🎉 **Gender Classified! The result is: {genre_prediction}**")
+                status_placeholder.success(
+                    f"🎉 **Gender Classified! The result is: {genre_prediction}**"
+                )
 
             except Exception as e:
                 # Mostrar error si algo falla en la extracción o predicción
-                status_placeholder.error(f"An error occurred during processing. Make sure the file is a valid audio format. Details: {e}")
-            
+                status_placeholder.error(
+                    f"An error occurred during processing. Make sure the file is a valid audio format. Details: {e}"
+                )
+
             finally:
                 # Limpiar el archivo temporal
                 if os.path.exists(temp_filename):
                     os.remove(temp_filename)
 
-st.caption('Gender Classification results are generated using an Artificial Intelligence (AI) model and are provided for informational purposes only; accuracy is not 100% guaranteed. Regarding privacy, your audio files are temporarily processed on our servers for classification purposes only and are deleted immediately after the result is obtained. We do not store, share, or redistribute your content.')
+st.caption(
+    "Gender Classification results are generated using an Artificial Intelligence (AI) model and are provided for informational purposes only; accuracy is not 100% guaranteed. Regarding privacy, your audio files are temporarily processed on our servers for classification purposes only and are deleted immediately after the result is obtained. We do not store, share, or redistribute your content."
+)
